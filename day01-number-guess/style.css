@@ -58,7 +58,6 @@ body{
 .answer_log{
   display: none;
   width: 100%;
-  min-height: 60px; /* 3行分の高さを確保 */
   background-color: #000;
   border: 1px solid #fff;
   color: #fff;
