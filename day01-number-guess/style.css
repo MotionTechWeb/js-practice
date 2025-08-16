@@ -1,0 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #F6F6F4;
+}
+.siteTitle{
+  text-align: center;
+}
+.wrapper{
+  width: 320px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.hatena_box {
+  background: #222;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  text-align: center;
+  margin: 0 auto 30px;
+}
+.openbox {
+  background: linear-gradient(135deg, #ffeb3b, #ff9800, #f44336);
+  color: #fff;
+  animation: openbox-move 1s ease-in-out;
+}
+
+@keyframes openbox-move {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 4px 16px rgba(255,152,0,0.4);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+}
+.answer_log{
+  display: none;
+  width: 100%;
+  min-height: 60px; /* 3行分の高さを確保 */
+  background-color: #000;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 10px;
+  font-size: 12px;
+}
+.text{
+  margin-bottom: 1rem;
+}
+
+input[type="number"] {
+  width: 90%;
+  max-width: 300px;
+  height: 3rem;
+  font-size: 1.5rem;
+  display: block;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.guessBtn {
+  width: 90%;
+  max-width: 300px;
+  height: 3rem;
+  font-size: 1.5rem;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.disabled-btn {
+  background: #ccc;
+  color: #f00;
+  cursor: not-allowed;
+}
