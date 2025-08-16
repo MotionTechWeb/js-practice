@@ -94,7 +94,12 @@ input[type="number"] {
   cursor: pointer;
 }
 .disabled-btn {
-  background: #ccc;
-  color: #f00;
+  background: #f00;
+  color: #fff;
   cursor: not-allowed;
+}
+.retry-btn {
+  background: #2196f3;
+  color: #fff;
+  border: none;
 }
