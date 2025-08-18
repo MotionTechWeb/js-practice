@@ -1,0 +1,96 @@
+/* シンプルで読みやすいUI。必要最小限に */
+:root {
+  --bg: #f7f7f9;
+  --panel: #fff;
+  --text: #222;
+  --muted: #6b7280;
+  --ok: #16a34a;
+  --ng: #dc2626;
+  --btn: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container {
+  max-width: 640px;
+  margin: 40px 4vw;
+  padding: 24px;
+  background: var(--panel);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.number {
+  font-size: 64px;
+  text-align: center;
+  margin: 18px 0 8px;
+  color: #e24c39;
+}
+
+.hud {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 16px 0 8px;
+}
+
+.btn,
+.restart {
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--btn);
+  color: #fff;
+}
+
+.restart {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.message {
+  min-height: 24px;
+  text-align: center;
+  margin: 8px 0;
+}
+
+.message.ok {
+  color: var(--ok);
+}
+.message.ng {
+  color: var(--ng);
+}
+.rules h2 {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+.rules p {
+  font-size: 13px;
+  padding: 4px;
+  margin: 0;
+}
