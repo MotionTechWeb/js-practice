@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="wrapper">
-  <h1 class="siteTitle">数あてゲーム</h1>
+  <div class="wrapper">
+    <h1 class="siteTitle">数あてゲーム</h1>
 
-  <!-- ...existing code... -->
-  <div class="hatena_box">?</div>
-  <p class="text">？の中に入っている、1~100の数字を当ててください。回答できるのは３回までです。</p>
+    <!-- ...existing code... -->
+    <div class="hatena_box" aria-live="polite">?</div>
+    <p class="text" id="gameRules">
+      ？の中に入っている、1〜100の数字を当ててください。回答できるのは3回までです。
+    </p>
 
-  <input type="number" id="guessInput" class="guessInput" min="1" max="100" placeholder="1~100の数字">
-  <button id="guessBtn" class="guessBtn">回答する</button>
-  <!-- ...existing code... -->
+    <!-- フォーム化：Enterキー送信・アクセシビリティ向上 -->
+    <form id="guessForm" class="guessForm" novalidate>
+      <label for="guessInput" class="visually-hidden">1〜100の整数を入力</label>
+      <input type="number" id="guessInput" class="guessInput" min="1" max="100" required inputmode="numeric"
+        placeholder="1〜100の数字" aria-describedby="gameRules inputHint" />
+      <button id="guessBtn" class="guessBtn" type="submit">回答する</button>
+      <!-- 再挑戦は独立ボタンにして状態分離 -->
+      <button id="resetBtn" class="retryBtn" type="button">再挑戦</button>
+    </form>
 
-  <div class="answer_log">
+    <!-- ...existing code... -->
+    <p id="inputHint" class="visually-hidden">1から100までの整数を入力してください。</p>
+
+    <!-- 履歴はライブリージョン -->
+    <div class="answer_log" role="log" aria-live="polite" aria-atomic="false"></div>
 
   </div>
-</div>
   <script src="script.js" defer></script>
 </body>
+
 </html>
