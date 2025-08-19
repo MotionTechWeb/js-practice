@@ -218,8 +218,16 @@
       showMessage("ok", msg);
     } else {
       STATE.lives--;
+      // 正解をカスタムメッセージに変換
       const correct = fizzBuzz(STATE.current);
-      showMessage("ng", `残念… (正解は ${correct})`);
+      let correctMsg = "";
+      if (correct === "Fizz") correctMsg = "サン！";
+      else if (correct === "Buzz") correctMsg = "ゴー！";
+      else if (correct === "FizzBuzz") correctMsg = "サンゴー！";
+      else correctMsg = "虚無";
+
+      showMessage("ng", `残念… (正解は ${correctMsg})`);
+
       if (STATE.lives <= 0) {
         render();
         gameOver();
