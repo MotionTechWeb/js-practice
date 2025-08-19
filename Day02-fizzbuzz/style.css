@@ -22,11 +22,18 @@ body {
 
 .container {
   max-width: 640px;
-  margin: 40px 4vw;
+  margin: 40px auto;
   padding: 24px;
   background: var(--panel);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* スマホ表示用 */
+@media (max-width: 599px) {
+  .container {
+    margin: 20px 4vw;
+  }
 }
 
 h1 {
@@ -61,13 +68,26 @@ h1 {
 .restart {
   padding: 12px 16px;
   font-size: 16px;
-  border: none;
+  border: 1px solid #dbdbdb;
   border-radius: 10px;
   cursor: pointer;
   background: var(--btn);
   color: #fff;
 }
-
+.fizz-btn {
+  background-color: #53c197;
+}
+.buzz-btn {
+  background-color: #4c83ff;
+}
+.fizzbuzz-btn {
+  background: linear-gradient(90deg, #53c197 0%, #4c83ff 100%);
+}
+.number-btn {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+}
 .restart {
   width: 100%;
   margin-top: 8px;
@@ -93,4 +113,12 @@ h1 {
   font-size: 13px;
   padding: 4px;
   margin: 0;
+}
+#timer {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+#tweetBtn {
+  width: 100%;
+  background-color: #222;
 }

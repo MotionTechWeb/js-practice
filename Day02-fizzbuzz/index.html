@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FizzBuzz Trainer</title>
+  <title>サンゴーファイト！</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
   <main class="container">
-    <h1>サンゴーファイト！！！</h1>
+    <h1>サンゴーファイト！</h1>
 
     <!-- 現在の数字を表示 -->
     <div id="number" class="number"></div>
@@ -19,22 +19,35 @@
     <div class="hud">
       <div>スコア: <span id="score">0</span></div>
       <div>ライフ: <span id="lives">3</span></div>
+      <div>Time: <span id="timer">0.0</span>s</div>
     </div>
 
     <!-- 回答ボタン群 -->
     <div class="buttons">
       <!-- それぞれ data-answer に "fizz" / "buzz" / "fizzbuzz" / "number" を持たせる -->
-      <button class="btn" data-answer="fizz">サン！</button>
-      <button class="btn" data-answer="buzz">ゴー！</button>
-      <button class="btn" data-answer="fizzbuzz">サンゴー！</button>
-      <button class="btn" data-answer="number">虚無</button>
+      <button class="btn fizz-btn" data-answer="fizz">サン！</button>
+      <button class="btn buzz-btn" data-answer="buzz">ゴー！</button>
+      <button class="btn fizzbuzz-btn" data-answer="fizzbuzz">サンゴー！</button>
+      <button class="btn number-btn" data-answer="number">虚無</button>
     </div>
 
     <!-- メッセージ表示領域（正解/不正解/ゲームオーバーなど） -->
     <p id="message" class="message"></p>
-
+    <button id="tweetBtn" class="btn" style="display:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" width="16" height="16"
+        style="vertical-align:middle; margin-right:6px; fill:currentColor;">
+        <path d="M714.163 519.284L1160.89 0H1051.18L670.445 
+             442.73L361.369 0H0L468.307 681.345L0 1226.31H109.714L512.351 
+             757.994L838.631 1226.31H1200L714.137 519.284H714.163ZM561.8 
+             694.508L518.207 632.955L149.51 79.676H310.003L606.948 
+             510.284L650.541 571.837L1050.88 1146.63H890.39L561.8 
+             694.534V694.508Z" />
+      </svg>
+      結果をツイート
+    </button>
     <!-- リスタート -->
     <button id="restart" class="restart">Restart</button>
+
     <div class="rules">
       <h2>ルール</h2>
       <p>
@@ -42,7 +55,7 @@
         ・<b>3で割れる</b>なら「サン！」のボタンを押す。<br>
         ・<b>5で割れる</b>なら「ゴー！」のボタンを押す。<br>
         ・<b>3と5の両方で割れる</b>なら「サンゴー！」のボタンを押す。<br>
-        どちらでもないなら「虚無」のボタンを押す。
+        ・どちらでもないなら「虚無」のボタンを押す。
       </p>
     </div>
   </main>
