@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>最小構成の非同期通信</h1>
+<script type="module">
+  import { fetchJson } from "./min.js"; // ← min.js が fetchJson を export している想定
+
+  const BASE = "https://jsonplaceholder.typicode.com";
+
+  try {
+    const list = await fetchJson(`${BASE}/posts`, {
+      query: { _limit: 5 }     // ?_limit=5 を付与
+    }, 8000);                   // 8秒タイムアウト（省略可）
+
+    console.log(list);
+  } catch (e) {
+    // e = { message, status, body }（あなたの実装どおり）
+    console.error(e);
+  }
+</script>
+</body>
+</html>
