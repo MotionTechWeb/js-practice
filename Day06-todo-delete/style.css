@@ -1,0 +1,194 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #121827;
+  --text: #e6edf3;
+  --muted: #9aa4b2;
+  --accent: #6ee7ff; /* シアン */
+  --accent-2: #a78bfa; /* ラベンダー */
+  --danger: #ff6b6b;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --grad: linear-gradient(
+    135deg,
+    rgba(110, 231, 255, 0.18),
+    rgba(167, 139, 250, 0.14)
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 32px;
+  background: radial-gradient(
+      1200px 600px at 10% -10%,
+      rgba(167, 139, 250, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 800px at 110% 0%,
+      rgba(110, 231, 255, 0.06),
+      transparent 55%
+    ),
+    var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, "Noto Sans JP", Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: clamp(20px, 3vw, 28px);
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  background: color-mix(in hsl, var(--panel) 92%, black 8%);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: clip;
+}
+
+.app::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: var(--grad);
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+#js-input {
+  flex: 1;
+  background: #0e1623;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+#js-input::placeholder {
+  color: color-mix(in srgb, var(--muted) 80%, white 20%);
+}
+#js-input:focus {
+  border-color: color-mix(in srgb, var(--accent) 50%, white 10%);
+  box-shadow: 0 0 0 4px rgba(110, 231, 255, 0.15);
+  background: #0c1420;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(
+      circle at 30% 0%,
+      rgba(110, 231, 255, 0.25),
+      transparent 40%
+    ),
+    #0e1623;
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.2s, border-color 0.2s,
+    filter 0.2s;
+  will-change: transform;
+}
+.btn:hover {
+  filter: brightness(1.06);
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.18);
+}
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(110, 231, 255, 0.22),
+    rgba(167, 139, 250, 0.22)
+  );
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+ul#js-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+#js-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f1726;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px 14px;
+  transition: border-color 0.2s, transform 0.08s ease, background 0.2s;
+}
+#js-list li:hover {
+  border-color: rgba(110, 231, 255, 0.25);
+  background: #0e1524;
+}
+.todo-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: calc(100% - 90px);
+}
+
+.btn-del {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.22),
+    rgba(110, 231, 255, 0.12)
+  );
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.btn-del:hover {
+  filter: brightness(1.08);
+}
+.btn-del:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* 小さめ画面 */
+@media (max-width: 480px) {
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn {
+    width: 100%;
+  }
+}
